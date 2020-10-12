@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+{% if ticker %}
+
+    {{ ticker }}
+    
+
+
+{% elif api %}
+
+    {% if api == "Error..." %}
+
+        There was a problem
+        Try again ....
+    
+    {% else%}
+        <h1>{{ api.companyName }}</h1> <br>
+        latestPrice : ${{ api.latestPrice  }} <br>
+        latestVolume : {{ api.latestVolume  }} <br>
+        previousClose: {{ api.previousClose  }} <br>
+        volume: {{ api.volume  }} <br>
+        lastTradeTime : {{ api.lastTradeTime }} <br>
+        open : ${{ api.open  }} <br>
+
+        
+
+    {% endif %}
+
+
+{% endif %}
+
+{% endblock %}
